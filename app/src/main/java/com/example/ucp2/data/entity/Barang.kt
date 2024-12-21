@@ -11,5 +11,5 @@ data class Barang(
     val deskripsi : String,
     val harga : String,
     val stok : String,
-    val namaSuplier: Suplier
+    val namaSuplier: String
 )
