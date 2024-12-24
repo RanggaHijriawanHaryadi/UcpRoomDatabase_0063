@@ -7,6 +7,6 @@ interface RepositorySpr {
 
     suspend fun insertSuplier(suplier: Suplier)
     fun getAllSuplier(): Flow<List<Suplier>>
-    fun getSuplier(id: String) : Flow<Suplier>
+    
 
 }
