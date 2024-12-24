@@ -165,13 +165,19 @@ fun CardBrg(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = { }
 ) {
-
+    val cardColors = if (brg.stok == 0){
+        Color.Gray
+    } else if (brg.stok in 1 .. 10){
+        Color.Red
+    }else{
+        Color.Green
+    }
     Card (
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp),
-
+        colors = cardColors(containerColor = cardColors)
     ) {
         Box (
         modifier = Modifier
@@ -200,7 +206,20 @@ fun CardBrg(
                         fontSize = 20.sp,
                         color = Color.Black
                     )
+                    Row (
 
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(imageVector = Icons.Filled.Info,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp))
+                        Spacer(modifier = Modifier.padding(4.dp))
+                        Text(
+                            text = "${brg.stok} brg",
+                            fontSize = 14.sp,
+                            color = Color.Black
+                        )
+                    }
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -215,7 +234,15 @@ fun CardBrg(
                     }
                 }
             }
-
+            Text(
+                text = "${brg.harga} hrg",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = Color.Black,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(top = 30.dp)
+            )
 
     }
 
