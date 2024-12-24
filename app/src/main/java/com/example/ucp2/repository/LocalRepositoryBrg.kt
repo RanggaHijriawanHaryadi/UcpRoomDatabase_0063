@@ -24,4 +24,5 @@ class LocalRepositoryBrg(
         return barangDao.deleteBarang(barang)
     }
 
+
 }
