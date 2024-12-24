@@ -29,11 +29,11 @@ fun UpdateBrgView(
     modifier: Modifier = Modifier,
     viewModel: UpdateBrgViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
-    val uiState = viewModel.updateUIState// Ambil Ui state dari viewModel
-    val snackbarHostState = remember { SnackbarHostState() } // Snakbar state
+    val uiState = viewModel.updateUIState
+    val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
-    // Observasu perubahan sbackbarmessage
+
     LaunchedEffect(uiState.snackBarMessage) {
         println("LaunchedEffect triggered")
         uiState.snackBarMessage?.let { message ->
@@ -74,7 +74,7 @@ fun UpdateBrgView(
                             viewModel.updateData()
                             delay(600)
                             withContext(Dispatchers.Main) {
-                                onNavigate() // navigasi di main thread
+                                onNavigate()
                             }
                         }
                     }

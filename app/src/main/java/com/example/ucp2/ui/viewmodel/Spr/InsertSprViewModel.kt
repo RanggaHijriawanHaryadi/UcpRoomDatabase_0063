@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class SuplierViewModel (private val repositorySpr: RepositorySpr): ViewModel() {
     var uiStateSpr by mutableStateOf(SprUIState())
 
-    // Memperbarui state berdasarkan input pengguna
+
     fun updateState(suplierEvent: SuplierEvent){
         uiStateSpr = uiStateSpr.copy(
             suplierEvent = suplierEvent,
@@ -34,7 +34,7 @@ class SuplierViewModel (private val repositorySpr: RepositorySpr): ViewModel() {
         return  errorState.isValid()
     }
 
-    // Menyimpan data ke respitory
+
     fun saveData(){
         val currentEvent = uiStateSpr.suplierEvent
 
@@ -60,7 +60,7 @@ class SuplierViewModel (private val repositorySpr: RepositorySpr): ViewModel() {
             )
         }
     }
-    // reset pesan snackbar setelah ditampilkan
+
     fun resetSnackBarMessage(){
         uiStateSpr= uiStateSpr.copy(snackBarMessageSpr = null)
     }

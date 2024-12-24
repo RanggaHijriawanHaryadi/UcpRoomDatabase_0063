@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -114,9 +115,14 @@ fun InsertBodyBrg(
         Button(
             onClick = onClick,
             modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF62F2EA),
+                contentColor = Color.Black
+            )
         ) {
             Text("Simpan")
         }
+
     }
 }
 
@@ -193,19 +199,15 @@ fun FormBarang(
             color = Color.Red
         )
 
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = barangEvent.namaSuplier,
-            onValueChange = {
-                onValueChange(barangEvent.copy(namaSuplier = it))
+        DynamicSelectTextField(
+
+            selectedValue = barangEvent.namaSuplier,
+            label = "nama Suplier",
+            onValueChangedEvent = { selectSpr ->
+                onValueChange(barangEvent.copy(namaSuplier = selectSpr))
             },
-            label = { Text("Suplier") },
-            isError = errorStateBrg.namaSuplier != null,
-            placeholder = { Text("Masukkan Suplier") }
+            options = SprList.NamaSpr()
         )
-        Text(
-            text = errorStateBrg.namaSuplier ?: "",
-            color = Color.Red
-        )
+
     }
 }

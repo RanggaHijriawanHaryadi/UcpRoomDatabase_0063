@@ -83,10 +83,10 @@ fun BodyUtamaBrgView(
     modifier: Modifier = Modifier
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() } // Snackbar state
+    val snackbarHostState = remember { SnackbarHostState() }
     when {
         utamaBrgUiState.isLoadingBrg -> {
-            // Menampilkan indikator loading
+
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -96,18 +96,18 @@ fun BodyUtamaBrgView(
         }
 
         utamaBrgUiState.isErrorBrg -> {
-            //Menampilkan pesarn error
+
             LaunchedEffect(utamaBrgUiState.errorMessageBrg) {
                 utamaBrgUiState.errorMessageBrg?.let { message ->
                     coroutineScope.launch {
-                        snackbarHostState.showSnackbar(message) //Tampilkan Snackbar
+                        snackbarHostState.showSnackbar(message)
                     }
                 }
             }
         }
 
         utamaBrgUiState.listBrg.isEmpty() -> {
-            // Menampilkan pesan jika data kosong
+
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center

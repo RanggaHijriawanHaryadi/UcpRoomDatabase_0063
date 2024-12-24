@@ -96,7 +96,7 @@ fun BarangEvent.toBarangEntity(): Barang = Barang(
     namaSuplier = namaSuplier
 )
 
-// data class variabel yang menyimpan data input form
+
 data class BarangEvent(
     val id: Int? = null,
     val nama: String = "",
