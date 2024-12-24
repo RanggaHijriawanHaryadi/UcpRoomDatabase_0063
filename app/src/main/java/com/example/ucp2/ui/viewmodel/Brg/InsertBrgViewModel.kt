@@ -88,17 +88,17 @@ data class FormErrorStateBrg(
 
 
 fun BarangEvent.toBarangEntity(): Barang = Barang(
-    id = id,
+    id = id?: 0,
     nama = nama,
     deskripsi = deskripsi,
-    harga = harga,
-    stok = stok,
+    harga = (harga.toFloatOrNull() ?:0.0) as Float,
+    stok = stok.toIntOrNull()?:0,
     namaSuplier = namaSuplier
 )
 
 // data class variabel yang menyimpan data input form
 data class BarangEvent(
-    val id: String = "",
+    val id: Int? = null,
     val nama: String = "",
     val deskripsi: String = "",
     val harga: String = "",
