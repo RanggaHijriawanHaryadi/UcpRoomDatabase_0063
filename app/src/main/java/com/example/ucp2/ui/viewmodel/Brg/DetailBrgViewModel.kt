@@ -20,7 +20,7 @@ class DetailBrgViewModel(
     savedStateHandle: SavedStateHandle,
     private val repositoryBrg: RepositoryBrg,
 ): ViewModel(){
-    private val _id: String = checkNotNull(savedStateHandle[DestinasiDetailBrg.ID])
+    private val _id: Int = checkNotNull(savedStateHandle[DestinasiDetailBrg.ID])
 
     val detailUIState: StateFlow<DetailUiState> = repositoryBrg.getBarang(_id)
         .filterNotNull()
@@ -76,8 +76,8 @@ fun Barang.toDetailUiEvent(): BarangEvent {
         id = id,
         nama = nama,
         deskripsi = deskripsi,
-        harga = harga,
-        stok = stok,
+        harga = harga.toString(),
+        stok = stok.toString(),
         namaSuplier = namaSuplier
     )
 }
