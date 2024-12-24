@@ -15,7 +15,4 @@ class LocalRepositorySpr(
         return suplierDao.getAllSuplier()
     }
 
-    override fun getSuplier(id: String): Flow<Suplier> {
-        return  suplierDao.getSuplier(id)
-    }
 }
