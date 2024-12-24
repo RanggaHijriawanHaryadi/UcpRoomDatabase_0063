@@ -24,7 +24,7 @@ abstract class PenyimpananDatabase : RoomDatabase(){
                 Room.databaseBuilder(
                     context,
                     PenyimpananDatabase::class.java,
-                    "PenyimpananDatabase2"
+                    "PenyimpananDatabase4"
                 )
                     .build().also { Instance = it }
             })
