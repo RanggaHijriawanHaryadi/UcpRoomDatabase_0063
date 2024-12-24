@@ -85,14 +85,14 @@ data class FormErrorStateSpr(
 }
 
 fun SuplierEvent.toSuplierEntity(): Suplier = Suplier (
-    id = id,
+    id = id?:0,
     nama = nama,
     kontak = kontak,
     alamat = alamat,
 
 )
 data class SuplierEvent(
-    val id: String = "",
+    val id: Int? = null,
     val nama: String = "",
     val kontak: String = "",
     val alamat: String = "",
